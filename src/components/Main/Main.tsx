@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import UsersWrapper from '../UsersWrapper/UsersWrapper';
 import { StyledMain, Subtitle } from './styles';
 import { Result, Users } from './typings';
 
@@ -30,16 +31,19 @@ const Main = () => {
   } else {
     return (
       <StyledMain id="main">
-        <Subtitle>
-          <strong>Person</strong> Wealth
-        </Subtitle>
-        <ul>
-          {users.map((user) => (
-            <li key={user.id.value}>
-              {user.name.first} {user.name.last}
-            </li>
-          ))}
-        </ul>
+        <>
+          <Subtitle>
+            <strong>Person</strong> Wealth
+          </Subtitle>
+          <ul>
+            {users.map((user) => (
+              <li key={user.id.value}>
+                {user.name.first} {user.name.last}
+              </li>
+            ))}
+          </ul>
+          <UsersWrapper />
+        </>
       </StyledMain>
     );
   }
